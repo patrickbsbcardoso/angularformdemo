@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fontes/OpenSans-Regular.ttf");
+}
+
+.titulo_secao {
+  font-family: 'Open Sans', sans-serif;
+  color: #FFF;
+  text-align: center;
+  width: 100%;
+  padding: 50px 0;
+  display: block;
+  background-color: #000;
+}

@@ -1,0 +1,261 @@
+<form [formGroup]="formularioSolicitacao" (ngSubmit)="onSubmit()">
+    <app-titulo-secao texto="dados do solicitante"></app-titulo-secao>
+
+    <div class="formulario" formGroupName="dadosSolicitante">
+      <label class="campo-formulario">
+        <p>Nome</p>
+        <input class="caixa-texto passivel-erro" type="text" placeholder="Nome" formControlName="nome">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('dadosSolicitante').get('nome').errors!=null
+          && formularioSolicitacao.get('dadosSolicitante').get('nome').errors.required
+          && formularioSolicitacao.get('dadosSolicitante').get('nome').dirty"
+        >
+          Campo obrigatório
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>ID Funcional</p>
+        <input class="caixa-texto passivel-erro" type="text" placeholder="ID Funcional" formControlName="idFuncional">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('dadosSolicitante').get('idFuncional').errors!=null
+          && formularioSolicitacao.get('dadosSolicitante').get('idFuncional').errors.required
+          && formularioSolicitacao.get('dadosSolicitante').get('idFuncional').dirty"
+        >
+          Campo obrigatório
+        </p>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('dadosSolicitante').get('idFuncional').errors!=null
+          && formularioSolicitacao.get('dadosSolicitante').get('idFuncional').errors.pattern
+          && formularioSolicitacao.get('dadosSolicitante').get('idFuncional').dirty"
+        >
+          Digite somente números
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>Telefone</p>
+        <input class="caixa-texto passivel-erro" type="text" placeholder="Telefone" formControlName="telefone">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('dadosSolicitante').get('telefone').errors!=null
+          && formularioSolicitacao.get('dadosSolicitante').get('telefone').errors.required
+          && formularioSolicitacao.get('dadosSolicitante').get('telefone').dirty"
+        >
+          Campo obrigatório</p>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('dadosSolicitante').get('telefone').errors!=null
+          && formularioSolicitacao.get('dadosSolicitante').get('telefone').errors.pattern
+          && formularioSolicitacao.get('dadosSolicitante').get('telefone').dirty"
+        >
+          Digite somente números
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>E-mail</p>
+        <input class="caixa-texto passivel-erro" type="email" placeholder="Insira seu e-mail aqui" formControlName="email">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('dadosSolicitante').get('email').errors!=null
+          && formularioSolicitacao.get('dadosSolicitante').get('email').errors.required
+          && formularioSolicitacao.get('dadosSolicitante').get('email').dirty"
+        >
+          Campo obrigatório
+        </p>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('dadosSolicitante').get('email').errors!=null
+          && formularioSolicitacao.get('dadosSolicitante').get('email').errors.email
+          && formularioSolicitacao.get('dadosSolicitante').get('email').dirty"
+        >
+          Digite um e-mail válido
+        </p>
+      </label>
+      <label class="campo-formulario multi-coluna">
+        <p>Órgão</p>
+        <textarea class="caixa-texto passivel-erro" placeholder="Digite seu órgão aqui" formControlName="orgao"></textarea>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('dadosSolicitante').get('orgao').errors!=null
+          && formularioSolicitacao.get('dadosSolicitante').get('orgao').errors.required
+          && formularioSolicitacao.get('dadosSolicitante').get('orgao').dirty"
+        >
+          Campo obrigatório
+        </p>
+      </label>
+    </div>
+
+    <app-titulo-secao texto="descrição do evento"></app-titulo-secao>
+
+    <div class="formulario" formGroupName="descricaoEvento">
+      <label class="campo-formulario multi-coluna">
+        <p>Evento</p>
+        <textarea class="caixa-texto passivel-erro" placeholder="Diga mais sobre o seu evento" formControlName="evento"></textarea>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('evento').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('evento').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('evento').dirty"
+        >
+          Campo obrigatório
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>Data do evento</p>
+        <input class="caixa-texto passivel-erro" type="date" formControlName="dataEvento">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('dataEvento').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('dataEvento').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('dataEvento').dirty"
+        >
+          Campo obrigatório
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>Horário do Evento</p>
+        <input class="caixa-texto passivel-erro" type="time" formControlName="horarioEvento">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('horarioEvento').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('horarioEvento').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('horarioEvento').dirty"
+        >
+          Campo obrigatório
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>Período de duração em horas</p>
+        <input class="caixa-texto passivel-erro" type="time" formControlName="duracaoEvento">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('duracaoEvento').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('duracaoEvento').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('duracaoEvento').dirty"
+        >
+          Campo obrigatório
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>Público-Alvo</p>
+        <select class="caixa-texto passivel-erro" formControlName="publicoAlvo">
+          <option>Interno</option>
+          <option>Externo</option>
+        </select>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('publicoAlvo').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('publicoAlvo').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('publicoAlvo').dirty"
+        >
+          Campo obrigatório
+        </p>
+      </label>
+      <label class="campo-formulario multi-coluna">
+        <p>Pauta</p>
+        <textarea class="caixa-texto passivel-erro" placeholder="Detalhe o seu evento" formControlName="pauta"></textarea>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('pauta').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('pauta').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('pauta').dirty"
+        >
+          Campo obrigatório
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>Número de Participantes</p>
+        <input class="caixa-texto passivel-erro" type="text" placeholder="Digite o número de participantes" formControlName="numeroParticipantes">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('numeroParticipantes').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('numeroParticipantes').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('numeroParticipantes').dirty"
+        >
+          Campo obrigatório
+        </p>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('numeroParticipantes').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('numeroParticipantes').errors.pattern
+          && formularioSolicitacao.get('descricaoEvento').get('numeroParticipantes').dirty"
+        >
+          Digite somente números
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>Haverá necessidade de vagas de estacionamento? Quantas?</p>
+        <input class="caixa-texto" type="text" placeholder="Vagas" formControlName="vagas">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('vagas').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('vagas').errors.pattern
+          && formularioSolicitacao.get('descricaoEvento').get('vagas').dirty"
+        >
+          Digite somente números
+        </p>
+      </label>
+      <div class="caixa-checkbox">
+        <p><strong>Quais recursos audiovisuais serão necessários?</strong></p>
+        <p class="item">DATASHOW <input type="checkbox" formControlName="datashow"></p>
+        <hr>
+        <p class="item">LAPTOP <input type="checkbox" formControlName="laptop"></p>
+        <hr>
+        <p class="item">VIDEO CONFERÊNCIA <input type="checkbox" formControlName="videoConferencia"></p>
+        <hr>
+        <p class="item">LOUSA INTERATIVA <input type="checkbox" formControlName="lousaInterativa"></p>
+      </div>
+      <label class="campo-formulario">
+          <p>Responsável</p>
+          <input class="caixa-texto passivel-erro" type="text" placeholder="Quem será o responsável?" formControlName="responsavel">
+          <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('responsavel').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('responsavel').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('responsavel').dirty"
+        >
+          Campo obrigatório
+        </p>
+        </label>
+      <label class="campo-formulario">
+        <p>Função/Cargo</p>
+        <input class="caixa-texto passivel-erro" type="text" placeholder="Função" formControlName="responsavelFuncaoCargo">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('responsavelFuncaoCargo').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelFuncaoCargo').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelFuncaoCargo').dirty"
+        >
+          Campo obrigatório
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>Telefone</p>
+        <input class="caixa-texto passivel-erro" type="text" placeholder="Telefone" formControlName="responsavelTelefone">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('responsavelTelefone').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelTelefone').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelTelefone').dirty"
+        >
+          Campo obrigatório
+        </p>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('responsavelTelefone').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelTelefone').errors.pattern
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelTelefone').dirty"
+        >
+          Digite somente números
+        </p>
+      </label>
+      <label class="campo-formulario">
+        <p>E-mail</p>
+        <input class="caixa-texto passivel-erro" type="email" placeholder="Insira seu e-mail aqui" formControlName="responsavelEmail">
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('responsavelEmail').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelEmail').errors.required
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelEmail').dirty"
+        >
+          Campo obrigatório
+        </p>
+        <p class="mensagem-erro" *ngIf="
+          formularioSolicitacao.get('descricaoEvento').get('responsavelEmail').errors!=null
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelEmail').errors.email
+          && formularioSolicitacao.get('descricaoEvento').get('responsavelEmail').dirty"
+        >
+          Digite um e-mail válido
+        </p>
+      </label>
+    </div>
+    <app-titulo-secao texto="observações (caso julge necessário)"></app-titulo-secao>
+    <div class="formulario" formGroupName="observacoes">
+      <label class="campo-formulario multi-coluna">
+        <textarea class="caixa-texto" placeholder="Digite aqui sua observação" formControlName="observacao"></textarea>
+      </label>
+    </div>
+    <button type="submit" class="botao-submit">Finalizar Reserva</button>
+    <br><br><br><br>
+    <app-titulo-secao class="rodape" texto="Desenvolvido por Patrick de Barros Santos Braz Cardoso - 2019"></app-titulo-secao>
+  </form>
